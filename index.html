@@ -5,7 +5,8 @@
 
 		<title>Thrilling Frontend Technical Challenge</title>
 
-		<link rel="icon" type="image/x-icon" href="/tech-challenge/favicon.ico" />
+		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="stylesheet" href="main.css" />
 
 		<style>
 			body {
@@ -15,28 +16,30 @@
 	</head>
 
 	<body>
-		<h1>Thrilling Frontend Technical Challenge</h1>
 
-		<h2>Open your Developer Tools Console to view output.</h2>
+		<div class="main-container">
 
+			<h1>Thrilling Article Search</h1>
+	
+			<div class="input-container">
+				<form action="" id="search-form">
+					<input type="text" name="search" placeholder="Search by Title, Section, or Byline..." />
+					<input type="submit" value="See Articles" />
+				</form>
+			</div>
+	
+			<div class="results-container"></div>
+			
+			<div class="no-results">
+				No Matching Articles.
+			</div>
+		</div>
+
+		<script src="main.js"></script>
 		<script>
-			var request = new XMLHttpRequest();
-
-			request.open('GET', 'https://api.nytimes.com/svc/topstories/v2/science.json?api-key=Gwxln5M3geWlhR6UE0TY1FUWKSG3wCil');
-
-			request.onload = function() {
-				if (this.status >= 200 && this.status < 400) {
-					console.log(JSON.parse(this.response));
-				} else {
-					console.error(this);
-				}
-			};
-
-			request.onerror = function() {
-				console.error(this);
-			};
-
-			request.send();
+			let results;
+			let matches = [];
+			initForm();
 		</script>
 	</body>
 </html>
