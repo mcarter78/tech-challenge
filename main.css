@@ -21,6 +21,7 @@ body {
     border-radius: 3px;
     padding: 20px;
     height: 280px;
+    width: 100%;
 }
 
 .no-results {
